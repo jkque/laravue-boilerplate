@@ -15,4 +15,9 @@
 //     return view('welcome');
 // });
 
-Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+// Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+
+// Move other http requests to the Vue App
+Route::get('/{vue?}', function () {
+    return view('index');
+})->where('vue', '[\/\w\.-]*');
